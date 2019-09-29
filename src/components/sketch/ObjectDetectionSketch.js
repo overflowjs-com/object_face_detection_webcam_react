@@ -15,8 +15,6 @@ export default function sketch (p) {
 
 
     function showCocoSSDResults(results) {
-
-        const id = capture.id();
         cocoDrawings = results;
     }
 
@@ -37,7 +35,7 @@ export default function sketch (p) {
                 minWidth: 1280,
                 minHeight: 720
               },
-              optional: [{ maxFrameRate: 10 }]
+              optional: [{ maxFrameRate: 40 }]
             },
             audio: false
           };
@@ -82,11 +80,11 @@ export default function sketch (p) {
                 const textWidth = p.textWidth(confidenetext);
                 
                 const itemTextWidth = p.textWidth(drawing.class);
-                p.text(drawing.class, textX-itemTextWidth, textY-50);
+                p.text(drawing.class, textX-itemTextWidth-10, textY-50);
 
-                p.text(confidenetext, textX-textWidth, textY-10);
+                p.text(confidenetext, textX-textWidth-10, textY-10);
                 p.strokeWeight(4);
-                p.stroke('rgb(100%,0%,10%)');
+                p.stroke('rgb(100%,100%,100%)');
                 p.rect(drawing.bbox[0], drawing.bbox[1], drawing.bbox[2], drawing.bbox[3]);
             }
         });
@@ -99,14 +97,14 @@ export default function sketch (p) {
                 const textX = drawing.detection.box._x+drawing.detection.box._width;
                 const textY = drawing.detection.box._y+drawing.detection.box._height;
                 
-                const confidenetext = "Gender: "+ drawing.gender;
-                const textWidth = p.textWidth(confidenetext);
-                p.text(confidenetext, textX-textWidth, textY-60);
+                const confidencetext = "Gender: "+ drawing.gender;
+                const textWidth = p.textWidth(confidencetext);
+                p.text(confidencetext, textX-textWidth-10, textY-60);
 
 
                 const agetext = "Age: "+ drawing.age.toFixed(0);
                 const ageTextWidth = p.textWidth(agetext);
-                p.text(agetext, textX-ageTextWidth, textY-30);
+                p.text(agetext, textX-ageTextWidth-10, textY-30);
 
                 const copiedExpression = drawing.expressions;
                 const expressions = Object.keys(copiedExpression).map((key) => {
@@ -122,10 +120,10 @@ export default function sketch (p) {
 
                 const expressiontext = "Mood: "+ expression_value;
                 const expressionWidth = p.textWidth(expressiontext);
-                p.text(expressiontext, textX-expressionWidth, textY-10);
+                p.text(expressiontext, textX-expressionWidth-10, textY-10);
                 
                 p.strokeWeight(4);
-                p.stroke('rgb(100%,0%,10%)');
+                p.stroke('rgb(100%,100%,100%)');
                 p.rect(drawing.detection.box._x, drawing.detection.box._y, drawing.detection.box._width, drawing.detection.box._height);
             }
         });
