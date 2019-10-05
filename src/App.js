@@ -1,14 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import objectDetectionSketch from './ObjectDetectionSketch';
 
-import Container from './components/Container';
+import P5Wrapper from 'react-p5-wrapper';
 
 export default class app extends React.Component {
     
   render() {
       return (
-        <Container />
+        <P5Wrapper sketch={objectDetectionSketch} />
       )
     }
 }
