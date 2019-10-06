@@ -1,4 +1,6 @@
-React.js UI code for finding object/face in live webcam  using tensorflow.js/Face-api.js.
+Code for finding object/face in live webcam  using tensorflow.js/Face-api.js.
+
+Read the detailed blog - https://overflowjs.com/posts/Face-Detection-Using-JavaScript-API-face-apijs.html
 
 Available Scripts In the project directory, you can run:
 
